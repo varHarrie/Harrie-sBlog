@@ -1,0 +1,65 @@
+/*colors*/
+@lightBlue:#dae3e7;
+@white:white;
+@black:#222;
+@pale:#a0b3b2;
+@deepGray:#363636;/*#778492;*/
+@primary:#046cb6;
+@font:"ubuntu",/*"montser",*/Helvetica,Arial,"微软雅黑","黑体",consolas,sans-serif;
+
+/*mixins*/
+.class-generator(@className,@prop,@spacing,@max,@unit:1px,@i:1) when(@i<=@max){
+	@num:@i * @spacing;
+	@val:@num * @unit;
+	.@{className}@{num}{
+		@{prop}: @val;
+	}
+	.class-generator(@className,@prop,@spacing,@max,@unit,@i+1);
+}
+.border-radius(@radius:2px){border-radius: @radius;}
+.transition(@rest...){
+	transition:@rest;
+	-webkit-transition: @rest;
+	-moz-transition:@rest;
+	-o-transition:@rest;
+}
+.transform(@rest...){
+	transform:@rest;
+	-webkit-transform: @rest;
+	-moz-transform:@rest;
+	-o-transform:@rest;
+}
+.animate(@rest...){
+	-webkit-animation:@rest;
+	-moz-animation:@rest;
+	-o-animation:@rest;
+	animation:@rest;
+}
+.keyframes(@name,@frames){
+	@-webkit-keyframes @name { @frames(); }
+    @-moz-keyframes @name { @frames(); }
+    @-ms-keyframes @name { @frames();}
+    @-o-keyframes @name { @frames(); }
+    @keyframes @name { @frames(); }
+};
+.box-sizing(@rest...){
+	box-sizing: @rest;
+	-webkit-box-sizing: @rest;
+	-moz-box-sizing:@rest;
+}
+.box-shadow(@rest...){
+	box-shadow: @rest;
+	-webkit-box-shadow: @rest;
+	-moz-box-shadow:@rest;
+}
+.perspective(@num:none){
+	perspective:@num;
+	-moz-perspective:@num;
+	-webkit-perspective:@num;
+}
+.user-select(@rest...){
+	user-select:@rest;
+	-ms-user-select:@rest;
+	-moz-user-select:@rest;
+	-webkit-user-select:@rest;
+}

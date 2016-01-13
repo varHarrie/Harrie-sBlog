@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Harrie's Blog</title>
+	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/styles/base.css">
+	<link rel="stylesheet" href="/styles/page.css">
+	<link rel="stylesheet" href="/lib/highlight/src/styles/monokai-sublime.css">
+</head>
+
+<body ng-app="blogApp">
+	<header class="header oh" data-role="bgSquare">
+		<!--头部开始-->
+		<div id="pb" class="progressBar"></div>
+		<div class="inner">
+			<div class="info oh mt30 mb30">
+				<div class="fl">
+					<img src="/img/avatar.png" class="avatar">
+				</div>
+				<div class="fl ml30">
+					<h1 class="title">Harrie</h1>
+					<h2 class="description"><span data-role="typer">is a web developer.#is a student.#is a man///// with a dream/// :) </span><span class="typed-cursor">|</span></h2>
+					<div class="contact">
+						<a href="#" class="contact-item"><i class="fa fa-git"></i></a>
+						<a href="#" class="contact-item"><i class="fa fa-github-alt"></i></a>
+						<a href="#" class="contact-item"><i class="fa fa-envelope"></i></a>
+						<a href="#" class="contact-item"><i class="fa fa-qq"></i></a>
+					</div>
+				</div>
+			</div>
+			<nav class="nav" ng-controller="navCtrl">
+				<ul>
+					<li><a class="item" href="#/">Home</a></li>
+					<li ng-repeat="category in categories"><a class="item" href="#/category/{{category._id}}" ng-bind="category.name"></a></li>
+					<li><a class="item" href="#/Archives">Archives</a></li>
+					<li><a class="item" href="#/GuestBook">GuestBook</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!--头部结束-->
+
+	<section class="container">
+		<!--内容开始-->
+		<div class="inner mt30" ng-view>
+			
+		</div>
+	</section>
+	<!--内容结束-->
+
+	<footer class="footer">
+		<!--脚部开始-->
+		<p>Developed by Harrie</p>
+	</footer>
+	<!--脚部结束-->
+</body>
+
+<!--scripts-->
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script src="/scripts/typing.js"></script>
+<script src="/scripts/bgSquare.js"></script>
+<script>
+	$("#pb").animate({width:"80%"},400);
+</script>
+
+<!--angular-->
+<script src="/lib/angular/angular.js"></script>
+<script src="/lib/angular-route/angular-route.js"></script>
+<script src="/lib/angular-resource/angular-resource.js"></script>
+<script src="/lib/angular-mdeditor/src/angular-mdeditor.js"></script>
+
+<script src="/lib/marked/lib/marked.js"></script>
+<script src="/lib/highlight/build/highlight.pack.js"></script>
+
+<!--app-->
+<script src="/scripts/app/resources.js"></script>
+<script src="/scripts/app/directives.js"></script>
+<script src="/scripts/app/blog.controllers.js"></script>
+<script src="/scripts/app/blog.app.js"></script>
+
+<script>
+	$("#pb").animate({width:"100%"},100);
+</script>
+</html>

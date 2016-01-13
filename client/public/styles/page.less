@@ -1,0 +1,138 @@
+@import "mixin.less";
+@import "common.less";
+
+.header {
+  background-color: #f5f5f5;
+  .progressBar {
+    width: 0;
+    height: 4px;
+    background-color: @primary;
+  }
+  .info {
+    .avatar {
+      height: 180px;
+      width: 180px;
+      .border-radius(90px);
+    }
+    .title {
+      font-weight: bold;
+      font-size: 38px;
+      margin-top: 30px;
+    }
+    .description {
+      color: @pale;
+      font-weight: lighter;
+    }
+    .contact {
+      margin-top: 10px;
+    }
+    .contact-item {
+      float: left;
+      margin-right: 8px;
+      display: block;
+      width: 36px;
+      height: 36px;
+      background-color: @pale;
+      .border-radius(18px);
+      text-align: center;
+      line-height: 36px;
+      font-size: 18px;
+      color: white;
+      .transition(background-color 0.5s);
+      &:hover {
+        background-color: @primary;
+      }
+    }
+  }
+  .nav {
+  }
+}
+
+.container {
+  font-size: 14px;
+  .left {
+    width: 750px;
+  }
+  .right {
+    margin-left: 30px;
+    width: 360px;
+  }
+  .fa {
+    color: @pale;
+  }
+}
+
+.box {
+  &-skill {
+    .skill {
+      font-size: 12px;
+      span {
+        color: @pale;
+      }
+    }
+    .level {
+      position: relative;
+      display: block;
+      margin-top: 8px;
+      margin-bottom: 12px;
+      width: 100%;
+      height: 4px;
+      background-color: @black;
+      &:after {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        content: "";
+        background-color: @primary;
+      }
+      &.level-1:after {
+        width: 20%;
+      }
+      &.level-2:after {
+        width: 40%;
+      }
+      &.level-3:after {
+        width: 60%;
+      }
+      &.level-4:after {
+        width: 80%;
+      }
+      &.level-5:after {
+        width: 100%;
+      }
+    }
+  }
+  &-project {
+    .item {
+      overflow: hidden;
+      .icon {
+        float: left;
+        width: 30px;
+        height: 30px;
+        margin-right: 20px;
+      }
+      .info {
+        float: left;
+      }
+      .title {
+      }
+      .description {
+        color: @pale;
+      }
+      .link {
+      }
+    }
+  }
+}
+
+.footer {
+  margin-top: 30px;
+  background: @black;
+  color: @lightBlue;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+}
