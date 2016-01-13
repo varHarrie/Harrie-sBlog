@@ -22,7 +22,7 @@ exports.query = function (req, res) {
 	var categoryId = req.query.categoryId;
 	var page = parseInt(req.query.page) || 1;
 	var query = {};
-	if (categoryId) query.categoryId = categoryId;
+	if (categoryId&&categoryId!=='all') query.categoryId = categoryId;
 	var option = {
 		skip: config.articlePageLimit * (page - 1),
 		limit: config.articlePageLimit,

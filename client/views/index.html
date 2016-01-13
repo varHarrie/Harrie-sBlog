@@ -23,19 +23,18 @@
 					<h1 class="title">Harrie</h1>
 					<h2 class="description"><span data-role="typer">is a web developer.#is a student.#is a man///// with a dream/// :) </span><span class="typed-cursor">|</span></h2>
 					<div class="contact">
-						<a href="#" class="contact-item"><i class="fa fa-git"></i></a>
-						<a href="#" class="contact-item"><i class="fa fa-github-alt"></i></a>
-						<a href="#" class="contact-item"><i class="fa fa-envelope"></i></a>
-						<a href="#" class="contact-item"><i class="fa fa-qq"></i></a>
+						<a href="https://git.oschina.net/varharrie" class="contact-item"><i class="fa fa-git"></i></a>
+						<a href="https://github.com/varHarrie" class="contact-item"><i class="fa fa-github-alt"></i></a>
+						<a href="mailto:varharrie@gmail.com" class="contact-item"><i class="fa fa-envelope"></i></a>
+						<a href="tencent://message/?uin=2277431399" class="contact-item"><i class="fa fa-qq"></i></a>
 					</div>
 				</div>
 			</div>
-			<nav class="nav" ng-controller="navCtrl">
+			<nav class="nav">
 				<ul>
-					<li><a class="item" href="#/">Home</a></li>
-					<li ng-repeat="category in categories"><a class="item" href="#/category/{{category._id}}" ng-bind="category.name"></a></li>
-					<li><a class="item" href="#/Archives">Archives</a></li>
-					<li><a class="item" href="#/GuestBook">GuestBook</a></li>
+					<li><a class="item" href="#/">主页</a></li>
+					<li><a class="item" href="#/archives">归档</a></li>
+					<li><a class="item" href="#/about">关于我</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -44,7 +43,7 @@
 
 	<section class="container">
 		<!--内容开始-->
-		<div class="inner mt30" ng-view>
+		<div class="inner mt30" ui-view>
 			
 		</div>
 	</section>
@@ -67,8 +66,9 @@
 
 <!--angular-->
 <script src="/lib/angular/angular.js"></script>
-<script src="/lib/angular-route/angular-route.js"></script>
+<script src="/lib/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="/lib/angular-resource/angular-resource.js"></script>
+<script src="/lib/angular-animate/angular-animate.js"></script>
 <script src="/lib/angular-mdeditor/src/angular-mdeditor.js"></script>
 
 <script src="/lib/marked/lib/marked.js"></script>

@@ -146,6 +146,10 @@ input[type='text'], input[type='password'], textarea, select {
 		width:40px;
 		line-height: 40px;
 		display: inline-block;
+		&.active{
+			color: white;
+			&:after{ height:100%; width:100%;}
+		}
 		&:after{&:extend(.nav .item:after); }
 		&:hover{
 			&:extend(.nav .item:hover);
