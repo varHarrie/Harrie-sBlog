@@ -19,7 +19,7 @@ module.exports = function (app) {
 	});
 
 	//background
-	app.route('/background').get(function (req, res) {
+	app.route('/backend').get(function (req, res) {
 		res.render('_index');
 	});
 	

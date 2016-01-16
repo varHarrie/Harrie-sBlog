@@ -1,8 +1,11 @@
-<section ng-repeat="article in articles" class="box article mb30">
-    <a ui-sref="blog.article({articleId:article._id})" href="">
-        <h2 class="title">{{article.title}}</h2>
-    </a>
-    <!--<div class="cover"></div>-->
+<section ng-repeat="article in articles" class="box article">
+    <h1 class="title">
+        <a ui-sref="blog.article({articleId:article._id})" href="">{{article.title}}</a>
+    </h1>
+    <div class="overview">
+        <img class="img" ng-if="article.overviewImg" src="{{article.overviewImg}}">
+        <p class="summary" ng-class="{'summary-w':!article.overviewImg}">{{article.overviewText}}</p>
+    </div>
     <div class="info">
         <span class="date">{{article.createAt | date:'yyyy年MM月dd日 HH:mm'}}</span>
 			<span class="meta">

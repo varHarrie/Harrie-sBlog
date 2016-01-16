@@ -3,8 +3,7 @@
 /*base*/
 body{background:@lightBlue;margin:0 0;color:@black;font-size: 14px;font-family: @font;}
 a,a:hover{color:@primary;text-decoration: none;}
-ul{list-style: none;}
-h1,h2,h3,h4,h5,h6,ul,li,p{margin: 0 0;padding: 0 0;}
+h1,h2,h3,h4,h5,h6,p,ul{margin: 0 0;padding: 0 0;}
 .block{display: block;}
 .fl{float: left;}
 .fr{float: right;}
@@ -23,7 +22,11 @@ h1,h2,h3,h4,h5,h6,ul,li,p{margin: 0 0;padding: 0 0;}
 .box{
 	background-color:white;
 	padding: 30px;
+	margin-bottom: 30px;
 	.box-sizing(border-box);
+	&>.title{
+		margin:0 0 20px 0;
+	}
 }
 .row{
 	padding: 8px 0;

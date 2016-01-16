@@ -4,13 +4,20 @@
     angular.module('blog.controllers', [
             'resources'
         ])
-        .controller('blogCtrl', ['$scope', '$state',
-            function ($scope, $state) {
+        .controller('navCtrl', ['$scope', 'Category',
+            function ($scope, Category) {
+                Category.query({}, function (categories) {
+                    $scope.categories = categories;
+                });
+            }])
+        .controller('blogCtrl', ['$scope', '$state','$document',
+            function ($scope, $state,$document) {
                 $scope.page = 0;
                 $scope.pageTotal = 0;
                 $scope.articles = [];
                 $scope.go = function (page) {
                     $state.go('.', {page: page});
+                    document.body.scrollTop=300;
                 }
             }])
         .controller('categoryCtrl', ['$scope', 'Article', '$stateParams',

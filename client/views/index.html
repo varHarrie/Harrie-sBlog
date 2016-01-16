@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/styles/base.css">
 	<link rel="stylesheet" href="/styles/page.css">
-	<link rel="stylesheet" href="/lib/highlight/src/styles/monokai-sublime.css">
 </head>
 
 <body ng-app="blogApp">
@@ -30,11 +29,12 @@
 					</div>
 				</div>
 			</div>
-			<nav class="nav">
+			<nav class="nav nav-black" ng-controller="navCtrl">
 				<ul>
-					<li><a class="item" href="#/">主页</a></li>
-					<li><a class="item" href="#/archives">归档</a></li>
-					<li><a class="item" href="#/about">关于我</a></li>
+					<li><a class="item" ui-sref="blog.category({categoryId:'all',page:1})" href="#">首页</a></li>
+					<li ng-repeat="category in categories"><a class="item" ui-sref="blog.category({categoryId:category._id,page:1})" href="#" ng-bind="category.name"></a></li>
+					<li><a class="item" ui-sref="archives" href="#">归档</a></li>
+					<li><a class="item" ui-sref="about" href="#">关于我</a></li>
 				</ul>
 			</nav>
 		</div>
