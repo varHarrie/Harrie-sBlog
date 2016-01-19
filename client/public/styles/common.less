@@ -18,21 +18,21 @@
 	.user-select(none);
 	overflow: hidden;
 	color: inherit;
-	&-black{
+	&-black {
 		background: @black;
-		color:@white;
+		color: @white;
 	}
-	&-icon .item{
+	&-icon .item {
 		padding: 0 0 !important;
-		width:40px !important;;
+		width: 40px !important;;
 		text-align: center !important;;
 	}
-	ul { list-style: none; margin:0 0;}
-	li { float: left;}
+	ul { list-style: none; margin: 0 0; }
+	li { float: left; }
 	.item {
 		position: relative;
 		.padding(0 1.8em);
-		height:40px;
+		height: 40px;
 		line-height: 40px;
 		display: block;
 		color: inherit;
@@ -40,6 +40,9 @@
 		cursor: pointer;
 		z-index: 0;
 		.transition(color 0.3s);
+		&-warning:after{
+			background-color: @warning !important;
+		}
 		&:after {
 			.transition(height 0.3s, width 0.3s;);
 			z-index: -1;
@@ -61,7 +64,7 @@
 		li { float: none; }
 		.item {
 			&:after { width: 0; height: 100%; }
-			&:hover:after {width: 100%; height: 100%; }
+			&:hover:after { width: 100%; height: 100%; }
 		}
 	}
 }
@@ -78,6 +81,10 @@ button, .btn {
 		background-color: @primary;
 		&:active { background-color: darken(@primary, 5%); }
 	}
+	&-warning {
+		background-color: @warning;
+		&:active { background-color: darken(@warning, 5%); }
+	}
 }
 
 input[type='text'], input[type='password'], textarea, select {
@@ -90,6 +97,14 @@ input[type='text'], input[type='password'], textarea, select {
 	.border-radius(0.2em);
 	.box-sizing(border-box);
 	&:focus { .border1px(@primary); }
+}
+
+label{
+	display: inline-block;
+	width:100%;
+	.padding();
+	color: @black;
+	font-weight: bold;
 }
 
 .loading {
@@ -131,31 +146,31 @@ input[type='text'], input[type='password'], textarea, select {
 
 .article {
 	position: relative;
-	&:before{
+	&:before {
 		position: absolute;
 		content: '';
 		display: block;
-		top:0;
-		left:0;
-		height:4px;
-		width:100%;
+		top: 0;
+		left: 0;
+		height: 4px;
+		width: 100%;
 		background-color: @primary;
 	}
-	.title { margin-bottom: 20px; font-size: 2em;text-align: center; color: @primary;}
+	.title { margin-bottom: 20px; font-size: 2em; text-align: center; color: @primary; }
 	.overview {
 		overflow: hidden;
 		margin-bottom: 20px;
-		.img{
-			width:40%;
-			height:auto;
+		.img {
+			width: 40%;
+			height: auto;
 			float: left;
 		}
-		.summary{
+		.summary {
 			float: left;
-			width:60%;
+			width: 60%;
 		}
-		.summary-w{
-			width:100%;
+		.summary-w {
+			width: 100%;
 		}
 	}
 	.info {
@@ -170,48 +185,62 @@ input[type='text'], input[type='password'], textarea, select {
 	}
 }
 
-.pagination{
-	ul{list-style: none;}
+.pagination {
+	ul { list-style: none; }
 	/*li{ float: left;}*/
 	background-color: white;
 	text-align: center;
-	.item{
+	.item {
 		&:extend(.nav .item);
 		.padding(0 0);
-		height:40px;
-		width:40px;
+		height: 40px;
+		width: 40px;
 		line-height: 40px;
 		display: inline-block;
-		&.active{
+		&.active {
 			color: white;
-			&:after{ height:100%; width:100%;}
+			&:after { height: 100%; width: 100%; }
 		}
-		&:after{&:extend(.nav .item:after); }
-		&:hover{
+		&:after {&:extend(.nav .item:after); }
+		&:hover {
 			&:extend(.nav .item:hover);
-			&:after{&:extend(.nav .item:hover:after);}
+			&:after {&:extend(.nav .item:hover:after); }
 		}
 	}
 }
 
-.tag{
+.tag {
 	font-size: 0.8em;
 	padding: 0.1em 0.3em;
 	margin-right: 5px;
 	.border-radius(2em);
-	border:1px solid @black;
+	border: 1px solid @black;
 	color: @black;
-	&:hover{
-		border:1px solid @primary;
+	&:hover {
+		border: 1px solid @primary;
 		color: @primary;
 	}
 }
 
-.tags{
-	ul{ list-style:none;}
-	li{ float: left;}
-	.item{
+.tags {
+	ul { list-style: none; }
+	li { float: left; }
+	.item {
 		&:extend(.tag);
-		&:hover{&:extend(.tag:hover);}
+		&:hover {&:extend(.tag:hover); }
+	}
+}
+
+.table {
+	.box-sizing(border-box);
+	.border-radius();
+	border: 1px solid @pale;
+	.row {
+		&.header{
+			background-color: #eaeaea !important;
+		}
+		&:first-child { border-top: none;}
+		&:nth-child(odd) { background-color: #fbfbfb; }
+		border-top: 1px solid @pale;
 	}
 }
