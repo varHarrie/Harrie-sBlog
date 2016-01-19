@@ -1,0 +1,24 @@
+<div class="inner box">
+	<form id="post" name="postForm" ng-submit="submit()" ng-class="{loading:loading}">
+		<div class="row">
+			<div class="colunm colunm-8">
+				<input name="title" type="text" placeholder="标题" ng-model="form.title" required>
+			</div>
+			<div class="colunm colunm-4">
+				<select title="选择目录" name="type" ng-model="form.categoryId" required>
+					<option value="" disabled>选择目录</option>
+					<option ng-repeat="category in categories" value="{{category._id}}" ng-bind="category.name"></option>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<input type="text" placeholder="标签" ng-model="form.tags">
+		</div>
+		<div class="row">
+			<mdeditor text="form.content" class-names="classNames"></mdeditor>
+		</div>
+		<div class="row">
+			<button class="btn-primary fr" ng-disabled="postForm.$invalid">立即发布</button>
+		</div>
+	</form>
+</div>

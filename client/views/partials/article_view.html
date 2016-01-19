@@ -1,0 +1,14 @@
+<div class="inner box oh">
+	<section class="article">
+		<h2 class="title">{{article.title}}</h2>
+		<div class="info">
+			<span class="date">{{article.createAt | date:'yyyy年MM月dd日 HH:mm'}}</span>
+			<span class="meta">
+				<i class="fa fa-eye"></i>{{article.views}}
+				&nbsp;&nbsp;&nbsp;
+				<i class="fa fa-comment"></i>0
+			</span>
+		</div>
+		<div class="content" ng-bind-html="article.content|markdown"></div>
+	</section>
+</div>

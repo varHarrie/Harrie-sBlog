@@ -1,0 +1,25 @@
+<div class="inner box">
+    <div>
+        <!--toolbar-->
+    </div>
+    <div class="table tc">
+        <div class="row header">
+            <div class="colunm colunm-2">id</div>
+            <div class="colunm colunm-4">标题</div>
+            <div class="colunm colunm-2">查看</div>
+            <div class="colunm colunm-2">评论</div>
+            <div class="colunm colunm-2">操作</div>
+        </div>
+        <div class="row" ng-repeat="article in articles">
+            <div class="colunm colunm-2">{{article._id}}</div>
+            <div class="colunm colunm-4">{{article.title}}</div>
+            <div class="colunm colunm-2">{{article.views}}</div>
+            <div class="colunm colunm-2">{{article.replyCount}}</div>
+            <div class="colunm colunm-2">
+                <button class="btn-primary">编辑</button>
+                <button class="btn-warning">删除</button>
+            </div>
+        </div>
+    </div>
+    <pagination class="mt10" page="page" total="pageTotal" action="go"></pagination>
+</div>

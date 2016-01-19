@@ -1,0 +1,40 @@
+<div class="inner box">
+    <form name="addForm" ng-submit="addSubmit()" ng-class="{loading:loading}">
+        <div class="row">
+            <div class="colunm colunm-1">
+                <label>id：</label>
+            </div>
+            <div class="colunm colunm-4">
+                <input type="text" ng-model="addForm._id" required ng-pattern="/[a-zA-Z-0-9]/">
+            </div>
+            <div class="colunm colunm-1">
+                <label>标题：</label>
+            </div>
+            <div class="colunm colunm-4">
+                <input type="text" ng-model="addForm.name" required>
+            </div>
+            <div class="colunm colunm-2">
+                <button class="btn-primary w" ng-disabled="addForm.$invalid">新增分类</button>
+            </div>
+        </div>
+    </form>
+    <div>
+        <!--toolbar-->
+    </div>
+    <div class="table tc">
+        <div class="row header">
+            <div class="colunm colunm-2">序号</div>
+            <div class="colunm colunm-4">id</div>
+            <div class="colunm colunm-4">标题</div>
+            <div class="colunm colunm-2">操作</div>
+        </div>
+        <div class="row" ng-repeat="category in categories">
+            <div class="colunm colunm-2">{{$index}}</div>
+            <div class="colunm colunm-4">{{category._id}}</div>
+            <div class="colunm colunm-4">{{category.name}}</div>
+            <div class="colunm colunm-2">
+                <button class="btn-warning">删除</button>
+            </div>
+        </div>
+    </div>
+</div>

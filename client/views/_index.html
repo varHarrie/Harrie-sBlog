@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Harrie's Blog</title>
+	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/styles/base.css">
+	<link rel="stylesheet" href="/styles/backend.css">
+	<link rel="stylesheet" href="/lib/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="/styles/mdeditor.css">
+</head>
+
+<body ng-app="backendApp" ng-controller="mainCtrl">
+	<header class="wrapper" ng-class="{'wrapper-on':showMenu}">
+		<div class="switch ml10 mt10" ng-click="toggleMenu()">
+			<span class="icon"></span>
+		</div>
+		<section class="top">
+			<div class="tab">
+				{{curTab.title}}
+			</div>
+			<ul class="menu menu-icon">
+				<li><a class="item" href="#"><i class="fa fa-exclamation-circle"></i></a></li>
+				<li><a class="item" href="#"><i class="fa fa-envelope"></i></a></li>
+				<li><a class="item item-warning" href="#"><i class="fa fa-sign-out"></i></a></li>
+			</ul>
+		</section>
+		<section class="left">
+			<img src="/img/avatar.png" class="avatar mt30 mb30">
+			<ul class="nav nav-vertical">
+				<li ng-repeat="tab in tabs"><a class="item" href="{{tab.url}}">{{tab.title}}</a></li>
+			</ul>
+		</section>
+		<div class="border">
+			<div class="overlay" ng-click="toggleMenu()"></div>
+		</div>
+	</header>
+	<section class="container" ng-style="{marginLeft:showMenu?'200px':0}">
+		<div class="view" ng-view></div>
+	</section>
+</body>
+<!--<script src="/lib/jquery/dist/jquery.js"></script>-->
+<!--angular-->
+<script src="/lib/angular/angular.js"></script>
+<script src="/lib/angular-route/angular-route.js"></script>
+<script src="/lib/angular-animate/angular-animate.js"></script>
+<script src="/lib/angular-resource/angular-resource.js"></script>
+<script src="/lib/angular-mdeditor/src/angular-mdeditor.js"></script>
+
+<script src="/lib/codemirror/lib/codemirror.js"></script>
+<script src="/lib/codemirror/addon/mode/overlay.js"></script>
+<script src="/lib/codemirror/mode/gfm/gfm.js"></script>
+<script src="/lib/codemirror/mode/markdown/markdown.js"></script>
+<script src="/lib/codemirror/mode/xml/xml.js"></script>
+<script src="/lib/codemirror/mode/css/css.js"></script>
+<script src="/lib/codemirror/mode/javascript/javascript.js"></script>
+<script src="/lib/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="/lib/codemirror/mode/clike/clike.js"></script>
+
+<script src="/lib/marked/lib/marked.js"></script>
+<script src="/lib/highlight/build/highlight.pack.js"></script>
+
+<!--app-->
+<script src="/scripts/app/resources.js"></script>
+<script src="/scripts/app/directives.js"></script>
+<script src="/scripts/app/backend.controllers.js"></script>
+<script src="/scripts/app/backend.app.js"></script>
+</html>
