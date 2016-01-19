@@ -13,6 +13,7 @@ router.delete();删除
 
 //category
 router.get('/category', categories.query);
+router.post('/category',categories.save);
 
 //article
 router.get('/article/:_id', articles.get);
