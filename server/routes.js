@@ -22,21 +22,7 @@ module.exports = function (app) {
 	app.route('/backend').get(function (req, res) {
 		res.render('_index');
 	});
-	
-	//db
-	app.route('/data').get(function(req,res){
-		['LifeStyle','Technology'].forEach(function(name){
-			var category=new Category({
-				name:name
-			});
-			category.save(function(err){
-				if(err){
-					console.log(err);
-				}
-			})
-		});
-		res.redirect('/');
-	});
+
 
 	//index
 	app.route('/*').get(function (req, res) {
