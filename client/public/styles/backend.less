@@ -1,0 +1,142 @@
+@import "mixin.less";
+@import "common.less";
+@menuWidth:200px;
+@unitLen:40px;
+@duration:0.5s;
+
+html,body{height: 100%;}
+
+.wrapper{
+	width: 100%;
+	height: 0;
+	position: fixed;
+	z-index:10;
+	.switch{
+		position: absolute;
+		z-index: 202;
+		cursor: pointer;
+		font-size: 20px;
+		width: 1em;
+		height: 1em;
+		padding: 0 0;
+		&:before,&:after,& .icon{
+			.transition(transform 0.2s ease-in-out);
+			display: block;
+			width: 100%;
+			height: .2em;
+			margin: 0 0 .2em;
+			content:"";
+			border-radius: .05em;
+			background: @primary;
+		}
+	}
+	.top{
+		overflow: hidden;
+		height: @unitLen;
+		background-color: white;
+		color:@black;
+		.tab{
+			.transition(margin-left @duration);
+			position: relative;
+			z-index: 202;
+			float: left;
+			margin-left: @unitLen;
+			line-height: @unitLen;
+			padding: 0 20px;
+			color: white;
+			background: @primary;
+		}
+		.menu{
+			position: relative;
+			z-index: 202;
+			float:right;
+			margin-right: @unitLen;
+			li{display: inline-block}
+			.item{
+				width: @unitLen;
+				height: @unitLen;
+				line-height: @unitLen;
+			}
+		}
+		 
+	}
+	.left{
+		position: relative;
+		z-index: 202;
+		margin-left: -@menuWidth;
+		width: @menuWidth;
+		color: @pale;
+		.transition(margin-left @duration);
+		.avatar{
+			width: @menuWidth / 2;
+			height: @menuWidth / 2;
+			margin-left: @menuWidth / 4;
+			.border-radius(50px);
+		}
+		.menu .item{
+			width: @menuWidth;
+			padding: 16px 0;
+		}
+	}
+	
+	.border{
+		position: fixed;
+		z-index: 201;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 0;
+		.box-sizing(border-box);
+		border-color: @black;
+		border-width: 0 0 0 0;
+		border-style: solid;
+		.transition(border-width @duration,height 0s @duration;);
+		.overlay{
+			display: none;
+			width: 100%;
+			height: 100%;
+			opacity: 0.3;
+			background-color: @black;
+		}
+	}
+	
+	&-on{
+		height: 100%;
+		.switch{
+			& .icon{.transform(scale(0));}
+			&:before{.transform(translateY(.4em) rotate(225deg));}
+			&:after{.transform(translateY(-.4em) rotate(-225deg));}
+		}
+		.top{
+			color: @pale;
+			.tab{
+				margin-left: @menuWidth;
+			}
+		}
+		.left{
+			margin-left: 0;
+		}
+		.border{
+			height: 100%;
+			border-width: @unitLen @unitLen @unitLen @menuWidth;
+			.transition(border-width @duration);
+			.overlay{
+				display: block;
+			}
+		}
+	}
+}
+
+.container{
+	padding-top: @unitLen * 2;
+	.transition(margin-left @duration);
+}
+
+.view.ng-enter{
+	.animate(fadeIn 0.5s);
+}
+
+.view.ng-leave{
+	position: absolute;
+	.animate(slideRightOut 0.5s);
+}

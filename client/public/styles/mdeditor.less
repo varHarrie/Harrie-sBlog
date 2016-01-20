@@ -1,0 +1,50 @@
+@import 'mixin.less';
+.mdeditor{
+	&:fullscreen{height: 100% !important;}
+	&:full-screen{height: 100% !important;}
+	&:-webkit-full-screen{height: 100% !important;}
+	&:-moz-full-screen{height: 100% !important;}
+	&:-ms-fullscreen{height: 100% !important;}
+	font-size: 1em;
+	overflow: hidden;
+	width: 100%;
+	border: 1px solid @pale;
+	.box-sizing(border-box);
+	.border-radius(0.2em);
+	&-toolbar{
+		overflow: hidden;
+		background-color: white;
+		list-style: none;
+		&-item,&-separator{
+			float: left;
+			height: 40px;
+			width: 40px;
+			line-height: 40px;
+			text-align: center;
+		}
+		&-item{
+			cursor: pointer;
+		}
+	}
+	&-textarea{
+		border: none !important;
+		resize: none;
+		outline: none;
+		padding: 10px 10px;
+		background-color: white;
+		font-size: 16px;
+		color: @black;
+	}
+	
+	&-preview{
+		padding: 30px;
+		/*background-color: #fcfcfc;*/
+		overflow-y: auto;
+	}
+	&-textarea,&-preview{
+		width: 100%;
+		font-family: inherit;
+		height: 500px;
+		.box-sizing(border-box);
+	}
+}
